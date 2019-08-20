@@ -1,0 +1,146 @@
+$font-color-dark: #333;
+$font-size-medium: 14px;
+$upload-height: 80px;
+
+
+:global .btn {
+  overflow: hidden;
+  position: relative;
+  font-weight: 200;
+  color: #fff;
+  border: 0;
+
+  &,
+  .btn > * {
+    cursor: pointer;
+  }
+
+  &:hover:not([disabled]):after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  &:active:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.4);
+  }
+
+  &,
+  &:hover:after,
+  &:active:after {
+    border-radius: 4px;
+  }
+
+  &.btn-transparent {
+    overflow: visible;
+    font-size: 18px;
+    &,
+    &:hover:after,
+    &:active:after {
+      color: #484848;
+      background-color: transparent;
+      background-image: none;
+      border-radius: 0;
+    }
+  }
+}
+
+.wrapImageUpload{
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+
+    :global {
+    .preview {
+      top: $upload-height;
+      left: 0;
+      width: 100%;
+      height: auto;
+      //padding: 3px;
+
+      .thumbnail {
+        position: relative;
+        overflow: hidden;
+        float: left;
+        width: 78px;
+        height: 78px;
+        margin: 3px;
+        border-radius: 6px;
+        box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2);
+        border: solid 1px rgba(0, 0, 0, 0.1);
+
+        .spinner-grow {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 30px;
+          height: 30px;
+          margin-top: -15px;
+          margin-left: -15px;
+          border-radius: 100px;
+        }
+
+        > img {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+
+        .btn-transparent {
+          position: absolute;
+          top: 3px;
+          right: 3px;
+        }
+      }
+    }
+  }
+}
+
+.sizeProgress {
+  margin-bottom: 3px;
+}
+
+:global .error {
+  color: red;
+}
+
+
+.uploadImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: $upload-height;
+  border: dotted 2px rgba(0, 0, 0, 0.3);
+  color: $font-color-dark;
+  font-size: $font-size-medium;
+
+  :global {
+    .upload-input, .preview {
+      position: absolute;
+    }
+    .upload-input {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      cursor: pointer;
+    }
+  }
+}
