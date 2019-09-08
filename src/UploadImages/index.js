@@ -156,8 +156,7 @@ const UploadImages = ({
     if (uploadFiles) {
       // 파일리더 정보 읽기
       for (let i = 0; i < uploadFiles.length; i += 1) {
-        const reader = new FileReader();
-        const getFileInfo = getFile(uploadFiles[i], reader);
+        const getFileInfo = getFile(uploadFiles[i]);
         results.push(getFileInfo);
       }
     }
